@@ -1,0 +1,9 @@
+.dsFlex {
+    display: flex;
+}
+@keyframes modalPlaylist {
+    
+    from {
+        transform: translateX(100%);
+    }
+}

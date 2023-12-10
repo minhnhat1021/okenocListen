@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>okenoc Listen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/music.css">
+    <link rel="stylesheet" href="./assets/css/grid.css">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    
+    
+    
+    
+</head>
+<body>
+    <div id="main">
+        <header id="header">
+            <div class="grid wide nav_wrap">
+                <div id="nav">
+                    <div class="nav_list">
+                        <span class="nav_item">
+                            
+                        </span>
+                        <span class="nav_item">
+                            
+                        </span>
+                        <span class="nav_search">
+                            <span class="search_icon">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </span>
+                            <span class="search_icon">
+                                <i class="fa-solid fa-xmark"></i>
+                            </span>
+                            <input class="search_input" type="text" placeholder="tìm kiếm bài hát / nghệ sĩ">
+                        </span>
+                    </div>
+                    <div class="nav_list2">
+                        <div class="nav_item">Nghệ sĩ</div>
+                        <div class="nav_item">Bài hát</div>
+                        <div class="nav_item">Playlist</div>
+                        <div class="nav_item">
+                            <label for="uploadMusic"><i class="fa-solid fa-cloud-arrow-up"></i></label>
+                            <input id="uploadMusic" hidden type="file">
+                        </div>
+                    </div>
+                    <div class="nav_list">
+                        <div class="nav_item">Đăng ký</div>
+                        <div class="nav_item">Đăng nhập</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div id="content">
+            <div class="row content_container">
+                <div class="content_artist col l-4 m-4">
+                    <div class="artist_info-wrap">
+                        <div class="artist_info">
+                            <h2 class="artist_name">okenoc</h2>
+                            <img class="artist_avatar" src="./assets/img/Nhat Minh.jpg" alt="">
+                            <ul class="artist_social">
+                                <li><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href=""><i class="fa-brands fa-youtube"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="content_music col l-8 m-8">
+                    <div class="music_info-wrap">
+                        <div class="music_info">
+                            <h2 class="music_title">Của riêng mình em đó được không</h2>
+                            <h2 class="music_lyric">Lời bài hát</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>                                     
+            <div class="content_pad"></div> 
+        </div>
+        <footer id="footer">
+                <div class="row footer_container">
+                    <div class="footer_list col l-3 m-3"></div>
+                    <div class="footer_list-handle col l-6 m-6 c-12">
+                        <div class="footer_handle-item">
+                            <div class="footer_handle-icons">
+                                <div class="footer_handle-icon">
+                                    <i class="fa-solid fa-shuffle"></i>
+                                </div>
+                                <div class="footer_handle-icon">
+                                    <i class="fa-solid fa-backward-step"></i>
+                                </div>
+                            </div>
+                            <div class="footer_handle-icons">
+                                <div class="footer_handle-icon">
+                                    <i class="fa-solid fa-circle-pause"></i>
+                                </div>
+                                <div hidden class="footer_handle-icon">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                </div>
+                            </div>
+                            <div class="footer_handle-icons">
+                                <div class="footer_handle-icon">
+                                    <i class="fa-solid fa-forward-step"></i>
+                                </div>
+                                <div class="footer_handle-icon">
+                                    <i class="fa-solid fa-repeat"></i>
+                                </div>  
+                            </div>
+                        </div>
+                        <div class="footer_handle-item">
+                            <h2 class="timestart_music">0:00</h2>
+                            <input class="timemusic" type="range">
+                            <h2 class="timeend_music">3:42</h2>
+                        </div>
+                    </div>
+                    <div class="footer_list-option col l-3 m-3">
+                        <div class="footer_list-item">
+
+                            <div class="footer_option-icon playlistJs">
+                                <i class="fa-solid fa-bars"></i>
+                            </div>
+                            <div class="footer_option-icon">
+                                <i class="fa-solid fa-volume-xmark"></i>
+                            </div>
+                            <div class="footer_option-icon">
+                                <i class="fa-solid fa-volume-off"></i>
+                            </div>
+                            <div class="footer_option-icon">
+                                <i class="fa-solid fa-volume-low"></i>
+                            </div>
+                            <div class="footer_option-icon">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </div>
+                            <div class="footer_option-icon">
+                                <input type="range">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </footer>
+        <div class="modal_playlist">
+            <div class="playlist_container">
+                <h2 class="playlist_title">Danh sách chờ</h2>
+                <h4 class="playlist_playing">Đang phát</h4>
+                <ul class="playlist_next-list">
+                    <li class="playlist_next-item row">
+                        <div class="playlist_next-description col l-6 m-6">
+                            <div class="playlist_next-count">1</div>
+                            <img class="playlist_next-img" src="./assets/img/Nhat Minh.jpg" alt="">
+                            <div class="playlist_musicArtist-wrap">
+                                <h4 class="playlist_next-nameMusic">Fall in love</h4>
+                                <a href="" class="playlist_next-nameArtist">okenoc</a>
+                            </div>
+                        </div>
+                        <div class="playlist_next-description col l-6 m-6">
+                            <a href="" class="playlist_next-linkMusic">Fall in love</a>
+                            <div class="playlis_next-option">
+                                <h4 class="playlist_next-time">3:42</h4>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="playlist_next">
+                    <h4 class="playlist_next-title">Tiếp theo</h4>
+                    <ul class="playlist_next-list">
+                        <li class="playlist_next-item row">
+                            <div class="playlist_next-description col l-6 m-6">
+                                <div class="playlist_next-count">1</div>
+                                <img class="playlist_next-img" src="./assets/img/Nhat Minh.jpg" alt="">
+                                <div class="playlist_musicArtist-wrap">
+                                    <h4 class="playlist_next-nameMusic">Fall in love</h4>
+                                    <a href="" class="playlist_next-nameArtist">okenoc</a>
+                                </div>
+                            </div>
+                            <div class="playlist_next-description col l-6 m-6">
+                                <a href="" class="playlist_next-linkMusic">Fall in love</a>
+                                <div class="playlis_next-option">
+                                    <h4 class="playlist_next-time">3:42</h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="playlist_next-item row">
+                            <div class="playlist_next-description col l-6 m-6">
+                                <div class="playlist_next-count">2</div>
+                                <img class="playlist_next-img" src="./assets/img/Nhat Minh.jpg" alt="">
+                                <div class="playlist_musicArtist-wrap">
+                                    <h4 class="playlist_next-nameMusic">Của riêng mình em đó được không</h4>
+                                    <a href="" class="playlist_next-nameArtist">okenoc</a>
+                                </div>
+                            </div>
+                            <div class="playlist_next-description col l-6 m-6">
+                                <a href="" class="playlist_next-linkMusic">Của riêng mình em đó được không</a>
+                                <div class="playlis_next-option">
+                                    <h4 class="playlist_next-time">2:36</h4>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="playlist_next-item row">
+                            <div class="playlist_next-description col l-6 m-6">
+                                <div class="playlist_next-count">3</div>
+                                <img class="playlist_next-img" src="./assets/img/Nhat Minh.jpg" alt="">
+                                <div class="playlist_musicArtist-wrap">
+                                    <h4 class="playlist_next-nameMusic">Vì là quá suy</h4>
+                                    <a href="" class="playlist_next-nameArtist">okenoc</a>
+                                </div>
+                            </div>
+                            <div class="playlist_next-description col l-6 m-6">
+                                <a href="" class="playlist_next-linkMusic">Vì là quá suy</a>
+                                <div class="playlis_next-option">
+                                    <h4 class="playlist_next-time">4:08</h4>
+                                </div>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./music.js"></script>
+</body>
+</html>
