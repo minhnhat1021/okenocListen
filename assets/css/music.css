@@ -179,10 +179,10 @@ html {
 }
 
 .music_info-wrap {
-    /* margin: 24px 24px 0 0; */
     margin-right: 24px;
     padding: 16px;
-    height: 300px;
+    width: 100%;
+    height: 400px;
     background-color: #000000;
     border-radius: var(--radius);
 }
