@@ -1,6 +1,12 @@
 .dsFlex {
     display: flex;
 }
+.dsNone {
+    display: none;
+}
+.dsOpen {
+    display: block;
+}
 @keyframes modalPlaylist {
     
     from {

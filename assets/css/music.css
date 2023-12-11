@@ -304,54 +304,73 @@ html {
 .playlist_next-title {
 
 }
-
+.playlist_playing-list,
 .playlist_next-list {
+    max-height: 450px;
     padding: 25px 12px 0;
+    overflow-y: auto;
+        
 }
+.playlist_playing-item,
 .playlist_next-item {
     display: flex;
     align-items: center;
     padding: 10px;
 }
+.playlist_playing-item:hover,
 .playlist_next-item:hover {
     border-radius: 3px;
     background-color: #5a5a5a; 
     transition: all .1s ease-out;
 }
+.playlist_playing-item:hover .playlist_playing-count ,
+.playlist_playing-item:hover .playlist_playing-nameArtist ,
+.playlist_playing-item:hover .playlist_playing-linkMusic ,
+.playlist_playing-item:hover .playlist_playing-time,
 .playlist_next-item:hover .playlist_next-count ,
 .playlist_next-item:hover .playlist_next-nameArtist ,
 .playlist_next-item:hover .playlist_next-linkMusic ,
 .playlist_next-item:hover .playlist_next-time {
     color: var(--whiteColor);
 }
+.playlist_playing-description,
 .playlist_next-description {
     display: flex;
     align-items: center;
 }
+.playlist_playing-description:nth-child(2),
 .playlist_next-description:nth-child(2){
     justify-content: space-between;
 }
+.playlist_playing-count,
 .playlist_next-count {
     color: var(--grayColor);
     padding: 8px 8px 8px 0;
 }
+.playlist_playing-img,
 .playlist_next-img {
     width: 7%;
     margin: 0 8px;
 }
+.playlist_playing-nameMusic,
 .playlist_next-nameMusic {
     color: var(--whiteColor);
     margin-bottom: 4px;
 }
+.playlist_playing-nameArtist,
+.playlist_playing-linkMusic,
 .playlist_next-nameArtist,
 .playlist_next-linkMusic {
     color: var(--grayColor);
     text-decoration: none;
 }
+.playlist_playing-nameArtist:hover,
+.playlist_playing-linkMusic:hover,
 .playlist_next-nameArtist:hover,
 .playlist_next-linkMusic:hover {
     text-decoration: underline;
 }
+.playlist_playing-time,
 .playlist_next-time {
     color: var(--grayColor);
 }
