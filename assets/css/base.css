@@ -7,6 +7,13 @@
 .dsOpen {
     display: block;
 }
+.active {
+    color: #1aa84c;
+}
+.active:hover {
+    color: #1ab951;
+    filter: brightness(110%);
+}
 @keyframes modalPlaylist {
     
     from {

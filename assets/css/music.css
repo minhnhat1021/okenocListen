@@ -219,6 +219,7 @@ html {
 .footer_handle-item {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-bottom: 5px;
 }
 .footer_handle-item:first-child {
@@ -251,6 +252,12 @@ html {
     color: var(--grayColor);
 }
 .timemusic {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 35%;
+    border-radius: var(--radius);
+    /* background-color: #1aa84c; */
+    opacity: 0.7;
     margin: 0 12px;
 }
 

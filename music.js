@@ -37,9 +37,12 @@ const pauseBtn = $('.pauseBtn')
 const rangeMusic = $('.timemusic')
 const nextBtn = $('.nextBtn')
 const backBtn = $('.backBtn')
+const randomBtn = $('.randomBtn')
+
 
 const playlistNext = $('.playlist_next-list')
 const app = {
+    isRandom: false,
     currentIndex : 0,
     songs : [
         {
@@ -150,31 +153,52 @@ const app = {
             // b.style.opacity = aa / a 
         }
 
-        // xử lý khi click play
-        playBtn.onclick = function() {
-            audio.play()
+        //khi song play 
+        audio.onplay = function(){
             playBtn.classList.add('dsNone')
             pauseBtn.classList.add('dsOpen')
             avatarAnimate.play()
         }
-
+        //khi song pause 
+        audio.onpause = function(){
+            playBtn.classList.remove('dsNone')
+            pauseBtn.classList.remove('dsOpen')
+            avatarAnimate.pause()
+        }
+        // xử lý khi click play
+        playBtn.onclick = function() {
+            audio.play()            
+        }
         // xử lý khi click pause
         pauseBtn.onclick = function() {
             audio.pause()
-            pauseBtn.classList.remove('dsOpen')
-            playBtn.classList.remove('dsNone')
-            avatarAnimate.pause()
         }
 
         // xử lý khi click next
         nextBtn.onclick = function() {
-            app.nextSong()
+            if(app.isRandom){
+                app.randomSong()
+            }
+            else {
+                app.nextSong()
+            }
             audio.play()            
         }
         // Xử lý khi click back
         backBtn.onclick = function() {
-            app.backSong()
+            if(app.isRandom){
+                app.randomSong()
+            }
+            else {
+                app.backSong()
+            }            
             audio.play()
+        }
+        // Xử lý khi click random
+        randomBtn.onclick = function() {
+            app.isRandom = !app.isRandom
+            randomBtn.classList.toggle('active', app.isRandom)
+            // audio.play()
         }
         // khi time tiến độ bài hát thay đổi
         audio.ontimeupdate = function() {
@@ -210,8 +234,8 @@ const app = {
             this.currentIndex = 0
         }
         
-        this.loadCurrentSong()
-        console.log(audio.src)    
+        this.loadCurrentSong()  
+        autoPlaySong()
     },
     backSong(){
         this.currentIndex--
@@ -219,6 +243,23 @@ const app = {
             this.currentIndex = this.songs.length - 1
         }
         this.loadCurrentSong()   
+    },
+    randomSong() {
+        let randomIndex
+        do {
+            randomIndex = Math.floor(Math.random() * this.songs.length)
+        } while(randomIndex === this.currentIndex)
+
+        this.currentIndex = randomIndex
+        this.loadCurrentSong()
+        
+    },
+    autoPlaySong() {
+        audio.ontimeupdate(function() {
+            if(audio.currentTime === audio.duration){
+                app.nextSong()
+            }
+        })
     },
     start() {
         // Định nghĩa các thuộc tính cho object app
