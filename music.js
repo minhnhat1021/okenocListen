@@ -32,16 +32,21 @@ const linkMusic = $('.playlist_playing-linkMusic')
 const timeMusic = $('.playlist_playing-time')
 const audio = $('#audio')
 
+
+
+
+// biến trong footer(function of song)
 const playBtn = $('.playBtn')
 const pauseBtn = $('.pauseBtn')
 const rangeMusic = $('.timemusic')
 const nextBtn = $('.nextBtn')
 const backBtn = $('.backBtn')
 const randomBtn = $('.randomBtn')
-
+const repeatBtn = $('.repeatBtn')
 
 const playlistNext = $('.playlist_next-list')
 const app = {
+    isRepeat: false,
     isRandom: false,
     currentIndex : 0,
     songs : [
@@ -125,6 +130,15 @@ const app = {
             </li>`
         }).join('')
         playlistNext.innerHTML = htmls
+        const songActive = $$('.playlist_next-item')
+        songActive.forEach(function(songActive, index){
+            songActive.onclick = function() {
+                app.currentIndex = index  
+                app.loadCurrentSong() 
+                audio.play()            
+            }
+        })
+        
     },
     defineProperties() {
         Object.defineProperty(this, 'currentSong', {
@@ -165,6 +179,13 @@ const app = {
             pauseBtn.classList.remove('dsOpen')
             avatarAnimate.pause()
         }
+        // xử lý next song khi audio ended
+        audio.onended = function () {
+            if(!app.isRepeat){
+                app.nextSong()
+            }
+            audio.play()
+        }
         // xử lý khi click play
         playBtn.onclick = function() {
             audio.play()            
@@ -200,6 +221,19 @@ const app = {
             randomBtn.classList.toggle('active', app.isRandom)
             // audio.play()
         }
+        // Xử lý khi click repeat
+        repeatBtn.onclick = function() {
+            app.isRepeat = !app.isRepeat
+            repeatBtn.classList.toggle('active', app.isRepeat)
+        }
+
+        // xử lý khi click song active
+        // songActive.forEach(function(songActive){
+        //     songActive.onclick = function(e) {
+        //         e.target.classList.toggle('active')
+        //     }
+        // })
+       
         // khi time tiến độ bài hát thay đổi
         audio.ontimeupdate = function() {
             rangeMusic.value = ((audio.currentTime / audio.duration) * 100)            
@@ -235,7 +269,7 @@ const app = {
         }
         
         this.loadCurrentSong()  
-        autoPlaySong()
+        
     },
     backSong(){
         this.currentIndex--
@@ -253,13 +287,6 @@ const app = {
         this.currentIndex = randomIndex
         this.loadCurrentSong()
         
-    },
-    autoPlaySong() {
-        audio.ontimeupdate(function() {
-            if(audio.currentTime === audio.duration){
-                app.nextSong()
-            }
-        })
     },
     start() {
         // Định nghĩa các thuộc tính cho object app

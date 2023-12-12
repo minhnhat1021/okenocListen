@@ -14,6 +14,9 @@
     color: #1ab951;
     filter: brightness(110%);
 }
+.songActive {
+    
+}
 @keyframes modalPlaylist {
     
     from {
