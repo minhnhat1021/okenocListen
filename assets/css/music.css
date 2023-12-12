@@ -158,7 +158,7 @@ html {
 .artist_avatar {
     margin-top: 12px;
     width: 100%;
-    border-radius: var(--radius);
+    border-radius: 50%;
 }
 .artist_social {
     display: flex;
