@@ -17,6 +17,9 @@
 .songActive {
     
 }
+.volumeActive {
+    display: block;
+}
 @keyframes modalPlaylist {
     
     from {

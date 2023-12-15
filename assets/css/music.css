@@ -253,8 +253,8 @@ html {
 }
 .timemusic {
     -webkit-appearance: none;
-    width: 100%;
-    height: 35%;
+    width: 50%;
+    height: 30%;
     border-radius: var(--radius);
     /* background-color: #1aa84c; */
     opacity: 0.7;
@@ -276,6 +276,10 @@ html {
     padding: 0 8px;
     cursor: pointer;
 }
+.footer_option-icon i {
+    font-size: 1rem;
+}
+
 .footer_option-icon:hover {
     color: var(--whiteColor);
 }
@@ -353,6 +357,7 @@ html {
 .playlist_next-count {
     color: var(--grayColor);
     padding: 8px 8px 8px 0;
+    cursor: default;
 }
 .playlist_playing-img,
 .playlist_next-img {
@@ -363,6 +368,7 @@ html {
 .playlist_next-nameMusic {
     color: var(--whiteColor);
     margin-bottom: 4px;
+    cursor: default;
 }
 .playlist_playing-nameArtist,
 .playlist_playing-linkMusic,
@@ -379,5 +385,6 @@ html {
 }
 .playlist_playing-time,
 .playlist_next-time {
+    cursor: default;
     color: var(--grayColor);
 }
