@@ -8,10 +8,10 @@
     display: block;
 }
 .active {
-    color: #1aa84c;
+    color: var(--redColor);
 }
 .active:hover {
-    color: #1ab951;
+    color: var(--redColor);
     filter: brightness(110%);
 }
 .songActive {
