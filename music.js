@@ -16,16 +16,12 @@ playlistContainer.onclick = function(e){
 }
 
 
-// Xử lý khi click vào input 
+
 const searchInput = $('.search_input')
 const clearInput = $$('.search_icon')[1]
-searchInput.onfocus = function() {
-    clearInput.classList.add('dsOpen')
-}
-clearInput.onclick = function() {
-    searchInput.value = ''
-    clearInput.classList.remove('dsOpen')
-}
+
+const songSearch = $('.song__search-content')
+const historySearch = $('.history__search-content')
 // HANDLE PLAYLIST-------------------------------------------------------------------------------------------------------------
 
 const artistAvatar = $('.artist_avatar')
@@ -70,6 +66,7 @@ const app = {
     isRandom: false,
     isActiveRandom: false,
     isActiveRepeat: false,
+    isInputSearchFocus: false,
     isPlay: false,
     config: JSON.parse(localStorage.getItem(PLAYER))  || {},      
     setConfig(key, value){
@@ -78,6 +75,15 @@ const app = {
     },  
     currentIndex : 0,
     songs : [
+        {
+            count: 1,
+            name: 'Chạy ngay đi',
+            singer: 'Sơn Tùng M-TP',
+            time: `4:08`,
+            path: './assets/music/chayngaydi.mp3',
+            image: './assets/img/Nhat Minh.jpg',
+            lyric: `chay ngay di`
+        },
         {
             count: 1,
             name: 'Vì là quá suy',
@@ -145,7 +151,7 @@ const app = {
         },
         {
             count: 3,
-            name: 'Fall in love',
+            name: 'Fallinlove',
             singer: 'okenoc',
             time: `3:24`,
             path: './assets/music/fallinlove.mp3',
@@ -363,6 +369,7 @@ const app = {
 
         //khi song play 
         audio.onplay = function(){
+            app.isPlay = !app.isPlay
             playBtn.classList.add('dsNone')
             pauseBtn.classList.add('dsOpen')
             avatarAnimate.play()
@@ -370,6 +377,7 @@ const app = {
         }
         //khi song pause 
         audio.onpause = function(){
+            app.isPlay = !app.isPlay
             playBtn.classList.remove('dsNone')
             pauseBtn.classList.remove('dsOpen')
             avatarAnimate.pause()
@@ -383,23 +391,81 @@ const app = {
         }
         // xử lý khi click play
         playBtn.onclick = function() {
-            app.isPlay = !app.isPlay
             audio.play()          
         }
         // xử lý khi click pause
         pauseBtn.onclick = function() {
-            app.isPlay = !app.isPlay
             audio.pause()
         }
         // Xử lý khi ấn space
-        document.onkeydown = function (e){
-            if(e.which === 32 && app.isPlay) {
+        document.addEventListener ('keydown',function (e){ 
+            if(e.which === 32 && !app.isInputSearchFocus && app.isPlay) {
+                app.isPlay = !app.isPlay
+                app.isInputSearchFocus = !app.isInputSearchFocus
                 pauseBtn.click()
             }
             // if(e.which === 32) {
             //     playBtn.click()
             // }
+        } ) 
+        // Xử lý khi click vào input 
+        searchInput.onfocus = function() {
+            app.isInputSearchFocus = !app.isInputSearchFocus
+            clearInput.classList.add('dsOpen')
         }
+        clearInput.onclick = function() {
+            searchInput.value = ''
+            clearInput.classList.remove('dsOpen')
+        }
+        // Xử lý tìm kiếm bài hát trong searchInput
+        searchInput.onkeyup = function(e){
+            // Tìm kiếm bài nhạc hoặc ca sĩ 
+            var valueInput = e.target.value
+            const findSong = app.songs.filter(function(song){
+                return song.name === valueInput || song.singer === valueInput
+            })
+            // Render bài nhạc hoặc ca sĩ đã tìm kiếm được
+            const htmlFindsongs = []
+            for(i = 0; i < app.songs.length; i++){
+                if(findSong.length === 1 && app.songs[i].name === valueInput) {
+                    const htmls = `<li class="song__search-item" data-index="${i}">${app.songs[i].name}</li>`
+                    songSearch.innerHTML = htmls
+                }
+                if(findSong.length === 1 && app.songs[i].singer === valueInput) {
+                    const htmls = `<li class="song__search-item" data-index="${i}">${app.songs[i].singer}</li>`
+                    songSearch.innerHTML = htmls
+                }
+
+                if(findSong.length > 1) {                 
+                    findSong.forEach((song, index) => {                       
+                        if(app.songs[i].name === song.name) {                           
+                            htmlFindsongs.push(`<li class="song__search-item" data-index="${i}">${app.songs[i].name}</li>`)
+                        }                        
+                    })                     
+                    songSearch.innerHTML = htmlFindsongs.join('')
+                }   
+            }
+            // Xử lý khi click vào bài hát vừa được tìm kiếm
+            songSearch.onclick = function(e) {
+                app.currentIndex = e.target.closest('.song__search-item').dataset.index
+                app.loadCurrentSong()
+                audio.play()
+                
+                // Lưu lịch sử tìm kiếm
+                if(findSong.length == 1){
+                    historySearch.innerHTML = `<li class="history__search-item" data-index = "${app.currentIndex}">${findSong[0].name}</li>`
+                }
+            }
+            // Xử lý khi click vào bài hát trong phần lịch sử tìm kiếm
+            historySearch.onclick = function(e) {
+                app.currentIndex = e.target.closest('.history__search-item').dataset.index
+                app.loadCurrentSong()
+                audio.play()
+            }
+        }
+        
+        
+
         // xử lý khi click next
         nextBtn.onclick = function() {
             if(app.isRandom){

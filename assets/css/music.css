@@ -11,6 +11,8 @@
     --orangeColor2: #DF9B6D;
     --brownColor: #CCB69B;
     --timeCountColor: #001B2E;
+
+    --p12: 12px;
 }
 ::-webkit-scrollbar {
     width: 0;
@@ -42,6 +44,7 @@ html {
     top: 0;
     right: 0;
     left: 0;
+    z-index: 1;
     height: var(--heightHeader);
     background-color: var(--mainColor);
 }
@@ -57,6 +60,7 @@ html {
     align-items: center;
 }
 .nav_list {
+    position: relative;
     display: flex;
     align-items: center;
 }
@@ -102,7 +106,56 @@ html {
 .search_input:hover {
     opacity: 0.8;
 }
+.search_subnav {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-radius: 2px;
+    background-color: #A57F60;
+    padding: 8px 0;
+}
+.song_search {
 
+}
+.song__search-title {
+    color: var(--brownColor);
+    font-size: 1rem;
+    padding: 12px var(--p12);
+    cursor: default;
+}
+.song__search-content {
+    list-style: none;
+}
+.song__search-item {
+    padding: 12px var(--p12);
+    cursor: pointer;
+}
+.song__search-item:hover {
+    background-color: #E8AE68;
+}
+.history_search {
+   
+}
+.history__search-title {
+    color: var(--brownColor);
+    font-size: 1rem;
+    padding: 12px var(--p12);
+    cursor: default;
+}
+.history__search-content {
+
+}
+.history__search-item {
+    cursor: pointer;
+    padding: 12px var(--p12);
+    font-size: 1rem;
+}
+.history__search-item:hover {
+    background-color: #E8AE68;
+    opacity: 1;
+}
 .nav_list2 {
     display: flex;
     align-items: center;
