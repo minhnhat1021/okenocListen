@@ -106,7 +106,9 @@ html {
 .search_input:hover {
     opacity: 0.8;
 }
+
 .search_subnav {
+    display: none;
     position: absolute;
     top: calc(100% + 10px);
     left: 0;
@@ -116,6 +118,9 @@ html {
     background-color: #A57F60;
     padding: 8px 0;
 }
+/* .search_input:focus .search_subnav{
+    display: block;
+} */
 .song_search {
 
 }
@@ -435,6 +440,7 @@ html {
 }
 .playlist_playing {
     margin-top: 20px;
+    padding-top: 20px;
     color: var(--timeCountColor);
 }
 
@@ -498,9 +504,13 @@ html {
     width: 7%;
     margin: 0 8px;
 }
-.playlist_playing-nameMusic,
-.playlist_next-nameMusic {
+.playlist_playing-nameMusic {
     color: #E84855;
+    margin-bottom: 4px;
+    cursor: default;
+}
+.playlist_next-nameMusic {
+    color: rgb(181, 107, 69);
     margin-bottom: 4px;
     cursor: default;
 }

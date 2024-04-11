@@ -16,7 +16,6 @@ playlistContainer.onclick = function(e){
 }
 
 
-
 const searchInput = $('.search_input')
 const clearInput = $$('.search_icon')[1]
 
@@ -81,11 +80,70 @@ const app = {
             singer: 'Sơn Tùng M-TP',
             time: `4:08`,
             path: './assets/music/chayngaydi.mp3',
-            image: './assets/img/Nhat Minh.jpg',
-            lyric: `chay ngay di`
+            image: './assets/img/sontung.jpg',
+            lyric: `
+            Good boy
+
+            Từng phút cứ mãi trôi xa phai nhòa dần kí ức giữa đôi ta
+            Từng chút nỗi nhớ hôm qua đâu về lạc bước cứ thế phôi pha
+            Con tim giờ không cùng chung đôi nhịp
+            Nụ cười lạnh băng còn đâu nồng ấm thân quen
+            Vô tâm làm ngơ thờ ơ tương lai ai ngờ
+            Quên đi mộng mơ ngày thơ tan theo sương mờ
+
+            Mưa lặng thầm đường vắng chiều nay
+            In giọt lệ nhòe khóe mắt sầu cay
+            Bao hẹn thề tàn úa vụt bay
+            Trôi dạt chìm vào những giấc nồng say
+            Quay lưng chia hai lối, còn một mình anh thôi
+            Giả dối bao trùm bỗng chốc lên ngôi
+            Trong đêm tối bầu bạn cùng đơn côi
+            Suy tư anh kìm nén đã bốc cháy yêu thương trao em rồi
+            Đốt sạch hết
+
+            Son môi hồng vương trên môi bấy lâu
+            Hương thơm dịu êm mê man bấy lâu (đốt sạch hết)
+            Anh không chờ mong quan tâm nữa đâu
+            Tương lai từ giờ như bức tranh em quên tô màu (đốt sạch hết)
+            Xin chôn vùi tên em trong đớn đau
+            Nơi hiu quạnh tan hoang ngàn nỗi đau (đốt sạch hết)
+            Dư âm tàn tro vô vọng phía sau
+            Đua chen dày vò xâu xé quanh thân xác nát nhàu
+
+            Chạy ngay đi, trước khi
+            Mọi điều dần tồi tệ hơn
+            Chạy ngay đi, trước khi
+            Lòng hận thù cuộn từng cơn
+            Tựa giông tố đến bên ghé thăm
+            Từ nơi hố sâu tối tăm
+            Chạy đi, trước khi
+            Mọi điều dần tồi tệ hơn
+            Không còn ai cạnh bên em ngày mai
+            Tạm biệt một tương lai ngang trái
+            Không còn ai cạnh bên em ngày mai
+            Tạm biệt một tương lai ngang trái
+            Không còn ai cạnh bên em ngày mai
+            Tạm biệt một tương lai ngang trái
+            Không còn ai cạnh bên em ngày mai
+            Tạm biệt một tương lai ngang trái
+            
+            Yeah, buông bàn tay
+            Buông xuôi hi vọng buông bình yên (buông)
+            Đâu còn nguyên tháng ngày rực rỡ phai úa hằn sâu triền miên
+            Vết thương cứ thêm, khắc thêm, mãi thêm
+            Chà đạp vùi dập dẫm lên tiếng yêu ấm êm
+            Nhìn lại niềm tin từng trao giờ sao
+            Sau bao ngu muội sai lầm anh vẫn yếu mềm
+            Căn phòng giam cầm thiêu linh hồn cô độc em trơ trọi kêu gào xót xa
+            Căm hận tuôn trào dâng lên nhuộm đen ghì đôi vai đừng mong chờ thứ tha
+            (Ah, chính em gây ra mà
+            Những điều vừa diễn ra
+            Chính em gây ra mà, chính em gây ra mà
+            Những điều vừa diễn ra
+            Hết thật rồi)`
         },
         {
-            count: 1,
+            count: 2,
             name: 'Vì là quá suy',
             singer: 'okenoc',
             time: `4:08`,
@@ -119,7 +177,7 @@ const app = {
             Giờ đây anh đã suy (uh no uh no)`
         },
         {
-            count: 2,
+            count: 3,
             name: 'Của riêng mình em đó được không',
             singer: 'okenoc',
             time: `2:38`,
@@ -150,7 +208,7 @@ const app = {
             Chắc vào ,hương mê, dịu tan, hòa không gian tình `
         },
         {
-            count: 3,
+            count: 4,
             name: 'Fallinlove',
             singer: 'okenoc',
             time: `3:24`,
@@ -195,7 +253,7 @@ const app = {
             Bước tiếp nối câu yêu thương , muôn ngàn mây`
         },
         {
-            count: 4,
+            count: 5,
             name: 'Đưa em đi chơi thâu đêm',
             singer: 'okenoc',
             time: `1:08`,
@@ -234,7 +292,7 @@ const app = {
             `
         },
         {
-            count: 5,
+            count: 6,
             name: 'Coo tar',
             singer: 'okenoc',
             time: `1:24`,
@@ -277,7 +335,7 @@ const app = {
             Chơi vơi nét sắc hao nhanh`
         },
         {
-            count: 6,
+            count: 7,
             name: 'Vì là quá suy - Mix',
             singer: 'okenoc',
             time: `4:20`,
